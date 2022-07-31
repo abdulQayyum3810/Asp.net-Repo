@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.Master.cs" Inherits="AspNetProject1.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    
+    <%-- For data tables --%>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="Scripts/User.js"></script>
+
+    
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container py-5">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <h2 class="text-center mb-2">Customer Data</h2>
+            <div class="border rounded border-info p-3 mb-5">
+
+                <div class="row mb-5">
+                  <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="First name" id="customerFName" runat="server">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Last name" id="customerLName" runat="server">
+                  </div>
+                    <div class="col-md-3">
+             
+                        <input type="text" class="form-control" placeholder="Email" id="customerEmail" runat="server">
+                  </div>
+                   <div class="col-md-1">
+                    <asp:Button Text="Add" ID="addCustomerBtn" runat="server" CssClass="btn btn-primary" OnClientClick="return addCustomer()"/>  
+                  </div>
+  
+
+            </div>
+                <table id="customerTable" class="table table-bordered table-striped">
+
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+        
+                </table>
+           </div>
+
+            <h2 class="text-center mb-2">Product Data</h2>
+            <div class="border rounded border-info p-3 mb-5">
+                <a class="btn btn-primary mb-5"><i class="mr-1 fa fa-plus"></i>Add New</a>
+                <table id="productTable" class="table table-bordered table-hover table-striped table-light">
+
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+        
+                </table>
+           </div>
+
+
+        </div>
+    </form>
+
+    
+</body>
+</html>
+
+

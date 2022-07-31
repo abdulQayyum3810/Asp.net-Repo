@@ -1,0 +1,38 @@
+CREATE DATABASE AspNetProject1;
+
+CREATE TABLE product(
+
+id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+name VARCHAR(150) NOT NULL,
+price decimal(10,2), NOT NULL,
+);
+
+CREATE TABLE customer(
+
+id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+fname VARCHAR(150) NOT NULL,
+	lname VARCHAR(150),
+email VARCHAR(150)
+);
+CREATE TABLE accounts(
+
+id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+username VARCHAR(150) NOT NULL UNIQUE,
+fname VARCHAR(150) NOT NULL,
+lname VARCHAR(150),
+email VARCHAR(150),
+
+
+);
+
+INSERT INTO account(username,fname,lname, email,type) VALUES
+('abdulqayyum3810','Abdul' ,'Qayyum','abdulqayyum3810@gmail.com','admin'),
+('imran1122','Imran', 'Abbas','imran@gmail.com','accountant');
+
+INSERT INTO product(name, price) VALUES
+('Shampoo',10.05),
+('Colgate',7.09);
+
+INSERT INTO customer(fname,lname, email) VALUES
+('Hashim, 'Anwar','hashim@email.com'),
+('Amjad','Sabri', 'amjad@gmail.com');
