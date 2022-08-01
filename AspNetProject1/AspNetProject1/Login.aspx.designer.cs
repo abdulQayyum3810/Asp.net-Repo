@@ -15,6 +15,15 @@ namespace AspNetProject1
     {
 
         /// <summary>
+        /// loginFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm loginFrom;
+
+        /// <summary>
         /// username control.
         /// </summary>
         /// <remarks>
@@ -33,12 +42,12 @@ namespace AspNetProject1
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
 
         /// <summary>
-        /// type control.
+        /// loginBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect type;
+        protected global::System.Web.UI.WebControls.Button loginBtn;
     }
 }

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\admin.js" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Scripts\User.js" />
     <Content Include="test.aspx" />
     <Content Include="Web.config" />

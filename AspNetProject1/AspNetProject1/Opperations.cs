@@ -14,7 +14,16 @@ namespace AspNetProject1
         SqlConnection connection = new SqlConnection(conString);
 
         //////////////////////   ACCOUNT OPPERATIONS  /////////////////////////////
-
+        public DataTable Authentication(string username, string password)
+        {
+            connection.Open();
+            string query = "SELECT * FROM account WHERE username='" + username + "' and password='" + password + "';";
+            SqlDataAdapter SDA = new SqlDataAdapter(query, connection);
+            DataTable dt = new DataTable();
+            SDA.Fill(dt);
+            connection.Close();
+            return dt;
+        }
         public void AddAccount(string username , string fname, string lname, string email, string type)
         {
             connection.Open();

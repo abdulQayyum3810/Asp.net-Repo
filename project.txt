@@ -14,20 +14,24 @@ fname VARCHAR(150) NOT NULL,
 	lname VARCHAR(150),
 email VARCHAR(150)
 );
-CREATE TABLE accounts(
+CREATE TABLE account(
 
-id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-username VARCHAR(150) NOT NULL UNIQUE,
+username VARCHAR(150) NOT NULL primary key,
+password VARCHAR(150) NOT NULL,
 fname VARCHAR(150) NOT NULL,
 lname VARCHAR(150),
 email VARCHAR(150),
+type VARCHAR(150) NOT NULL
 
 
 );
 
-INSERT INTO account(username,fname,lname, email,type) VALUES
-('abdulqayyum3810','Abdul' ,'Qayyum','abdulqayyum3810@gmail.com','admin'),
-('imran1122','Imran', 'Abbas','imran@gmail.com','accountant');
+
+INSERT INTO dbo.account(username,password,fname,lname, email,type) VALUES
+('abdulqayyum3810','abdul','Abdul' ,'Qayyum','abdulqayyum3810@gmail.com','admin'),
+('imran1122','imran','Imran', 'Abbas','imran@gmail.com','accountant');
+
+
 
 INSERT INTO product(name, price) VALUES
 ('Shampoo',10.05),
