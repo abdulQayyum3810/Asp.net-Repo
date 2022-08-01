@@ -13,10 +13,12 @@
         data: JSON.stringify({ "username": username, "password": password }),
         success: function (data) {
             if (data.d === "admin") {
-                window.location.href = "Admin.aspx";
+                window.location.replace("Admin.aspx");
+
             }
             else if (data.d === "accountant") {
-                window.location.href = "Accountant.aspx";
+                
+                window.location.replace("Accountant.aspx");
             }
             else {
                 $("#loginError").removeClass("d-none")

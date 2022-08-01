@@ -52,18 +52,40 @@ function populateCustomerTable(data) {
             { "data": "lname" },
             { "data": "email" },
             
-            {'data': null,
+            {'data': "id",
 
-                 'defaultContent': '<button id="editBtn" onclick="editCustomerClick()">Edit</button>'
-            },
+                'render': function (data) { return '<button type="button" id="deleteBtn" onclick="editCustomerClick(' + data + ')">Edit</button>' }
+            }
+            ,
             {
-                'data': null,
-                'defaultContent': '<button id="deleteBtn" onclick="deleteCustomerClick()">Delete</button>'
+                'data': "id",
+                'render': function (data) { return '<button id="deleteBtn" onclick="deleteCustomerClick(' + data +')">Delete</button>' }
             }
         ]
-    })
+    });
 }
 
+function editCustomerClick(data) {}
+
+function deleteCustomerClick(data) {
+    $.ajax({
+
+        url: "Admin.aspx/DeleteCustomerWeb",
+        method: "post",
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({ "id":data}),
+        async: true,
+        success: function (data) {
+            data = JSON.parse(data.d)
+            console.log(data)
+
+            populateCustomerTable(data)
+        }
+
+    });
+    return false
+}
 function addCustomer() {
 
     var fname = $("#customerFName").val();

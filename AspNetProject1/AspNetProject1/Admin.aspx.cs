@@ -13,20 +13,28 @@ namespace AspNetProject1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] != null && Session["type"] != null)
+            
+            if (!Page.IsPostBack)
             {
-                if (Session["type"].ToString() == "admin")
+                if (Session["user"] != null && Session["type"] != null)
                 {
-                    Response.Redirect("Admin.aspx");
+                    if (Session["type"].ToString() == "admin")
+                    {
+                        
+                    }
+                    else if (Session["type"].ToString() == "accountant")
+                    {
+                        Response.Redirect("Accountant.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("Login.aspx");
+                    }
                 }
-                else if (Session["type"].ToString() == "accountant")
+                else
                 {
-                    Response.Redirect("Accountant.aspx");
+                    Response.Redirect("Login.aspx");
                 }
-            }
-            else
-            {
-                Response.Redirect("Login.aspx");
             }
         }
         
@@ -65,6 +73,16 @@ namespace AspNetProject1
             return customer.JsonConverter(data);
 
         }
+        [WebMethod]
+        public static string DeleteCustomerWeb(int id)
+        {
+            var customer = new Opperations();
+            customer.DeleteCustomer(id);
+            var data = customer.GetCustomers();
+            return customer.JsonConverter(data);
+
+        }
+
    
         
 

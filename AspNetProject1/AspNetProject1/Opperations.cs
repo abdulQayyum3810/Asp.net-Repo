@@ -10,7 +10,7 @@ namespace AspNetProject1
 
     class Opperations
     {
-        static string conString = @"Data Source=DESKTOP-89TMV54\SQLEXPRESS;Initial Catalog=AspNetProject1;Persist Security Info=True;User ID=sa;Password=abdul95@uet";
+        static string conString = @"Data Source=CMDLHRDB01;Initial Catalog=4087-AspNetProject1;Persist Security Info=True;User ID=sa;Password=CureMD2022";
         SqlConnection connection = new SqlConnection(conString);
 
         //////////////////////   ACCOUNT OPPERATIONS  /////////////////////////////
