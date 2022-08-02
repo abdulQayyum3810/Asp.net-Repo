@@ -14,28 +14,28 @@ namespace AspNetProject1
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (!Page.IsPostBack)
-            {
-                if (Session["user"] != null && Session["type"] != null)
-                {
-                    if (Session["type"].ToString() == "admin")
-                    {
+            //if (!Page.IsPostBack)
+            //{
+            //    if (Session["user"] != null && Session["type"] != null)
+            //    {
+            //        if (Session["type"].ToString() == "admin")
+            //        {
                         
-                    }
-                    else if (Session["type"].ToString() == "accountant")
-                    {
-                        Response.Redirect("Accountant.aspx");
-                    }
-                    else
-                    {
-                        Response.Redirect("Login.aspx");
-                    }
-                }
-                else
-                {
-                    Response.Redirect("Login.aspx");
-                }
-            }
+            //        }
+            //        else if (Session["type"].ToString() == "accountant")
+            //        {
+            //            Response.Redirect("Accountant.aspx");
+            //        }
+            //        else
+            //        {
+            //            Response.Redirect("Login.aspx");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //}
         }
         
         [WebMethod]
@@ -78,6 +78,24 @@ namespace AspNetProject1
         {
             var customer = new Opperations();
             customer.DeleteCustomer(id);
+            var data = customer.GetCustomers();
+            return customer.JsonConverter(data);
+
+        }
+        [WebMethod]
+        public static string AddProductWeb(string name, string price)
+        {
+            var product = new Opperations();
+            product.AddProduct(name, Convert.ToInt32(price));
+            var data = product.GetProducts();
+            return product.JsonConverter(data);
+
+        }
+        [WebMethod]
+        public static string UpdateCustomerWeb(int id,string fname,string lname,string email)
+        {
+            var customer = new Opperations();
+            customer.UpdateCustomer(id,fname,lname,email);
             var data = customer.GetCustomers();
             return customer.JsonConverter(data);
 

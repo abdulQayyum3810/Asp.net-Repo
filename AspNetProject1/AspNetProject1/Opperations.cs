@@ -115,10 +115,10 @@ namespace AspNetProject1
             SDA.SelectCommand.ExecuteNonQuery();
             connection.Close();
         }
-        public  void UpdateCustomer(int id, string name, string email)
+        public  void UpdateCustomer(int id, string fname,string lname, string email)
         {
             connection.Open();
-            string query = "UPDATE customer SET name='" + name + "', email='" + email + "' WHERE id='" + id + "';";
+            string query = "UPDATE customer SET fname='" + fname + "',lname='" + lname + "', email='" + email + "' WHERE id='" + id + "';";
             SqlDataAdapter SDA = new SqlDataAdapter(query, connection);
             SDA.SelectCommand.ExecuteNonQuery();
             connection.Close();

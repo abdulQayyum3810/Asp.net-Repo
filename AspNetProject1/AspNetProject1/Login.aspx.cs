@@ -15,21 +15,21 @@ namespace AspNetProject1
     {
         protected  void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                if (Session["user"] != null && Session["type"] != null)
-                {
-                    if (Session["type"].ToString() == "admin")
-                    {
-                        Response.Redirect("Admin.aspx");
-                    }
-                    else if (Session["type"].ToString() == "accountant")
-                    {
-                        Response.Redirect("Accountant.aspx");
-                    }
+            //if (!IsPostBack)
+            //{
+            //    if (Session["user"] != null && Session["type"] != null)
+            //    {
+            //        if (Session["type"].ToString() == "admin")
+            //        {
+            //            Response.Redirect("Admin.aspx");
+            //        }
+            //        else if (Session["type"].ToString() == "accountant")
+            //        {
+            //            Response.Redirect("Accountant.aspx");
+            //        }
                    
-                }
-            }
+            //    }
+            //}
         }
         [WebMethod(EnableSession=true)] 
 
